@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Options;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace DataBaseTool.Services
 {
@@ -51,10 +51,12 @@ namespace DataBaseTool.Services
             builder.UserID = dict["User Id"] ?? "";
             builder.Password = dict["Password"] ?? "";
 
+            if (dict.TryGetValue("TrustServerCertificate", out string TrustServerCertificate))
+                if (bool.TryParse(TrustServerCertificate, out bool TrustServerCertificateBool))
+                    builder.TrustServerCertificate = TrustServerCertificateBool;
+
             if (dict.TryGetValue("Application Name", out string ApplicationName))
-            {
                 builder.ApplicationName = dict["Application Name"];
-            }
 
             builder.PersistSecurityInfo = true;
             strDBconn = builder.ConnectionString;
