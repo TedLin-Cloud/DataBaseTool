@@ -138,7 +138,7 @@ namespace DataBaseTool.Services
             return Policy.Handle<Exception>().WaitAndRetry(timeSpans, (response, retryTime, context) =>
             {
                 var errorMsg = response?.Message;
-                logger.LogDebug(message: "延遲重試，發生錯誤：{errorMsg}，延遲 {retryTime} 後重試", errorMsg, retryTime);
+                logger.LogDebug(message: "Retry，ErrorMessage：{errorMsg}，Execute after a delay of {retryTime}", errorMsg, retryTime);
             }).Execute(() => Query<T>(SqlText, dataBase, commandType, param, transaction));
         }
         /// <inheritdoc/>
@@ -153,7 +153,7 @@ namespace DataBaseTool.Services
             return Policy.Handle<Exception>().WaitAndRetryAsync(timeSpans, (response, retryTime, context) =>
             {
                 var errorMsg = response?.Message;
-                logger.LogDebug(message: "延遲重試，發生錯誤：{errorMsg}，延遲 {retryTime} 後重試", errorMsg, retryTime);
+                logger.LogDebug(message: "ErrorMessage：{errorMsg}，Execute after a delay of {retryTime}", errorMsg, retryTime);
             }).ExecuteAsync(() => QueryAsync<T>(SqlText, dataBase, commandType, param, transaction));
         }
         /// <inheritdoc/>
@@ -172,7 +172,7 @@ namespace DataBaseTool.Services
             var result = Policy.Handle<Exception>().WaitAndRetry(timeSpans, (response, retryTime, context) =>
             {
                 var errorMsg = response?.Message;
-                logger.LogDebug(message: "延遲重試，發生錯誤：{errorMsg}，延遲 {retryTime} 後重試", errorMsg, retryTime);
+                logger.LogDebug(message: "ErrorMessage：{errorMsg}，Execute after a delay of {retryTime}", errorMsg, retryTime);
             }).Execute(() => QueryOutPut<T>(SqlText, dataBase, out result_OutPut, commandType, param, transaction, OutputStr));
             Output = result_OutPut;
             return result;
@@ -194,7 +194,7 @@ namespace DataBaseTool.Services
             return Policy.Handle<Exception>().WaitAndRetry(timeSpans, (response, retryTime, context) =>
             {
                 var errorMsg = response?.Message;
-                logger.LogDebug(message: "延遲重試，發生錯誤：{errorMsg}，延遲 {retryTime} 後重試", errorMsg, retryTime);
+                logger.LogDebug(message: "ErrorMessage：{errorMsg}，Execute after a delay of {retryTime}", errorMsg, retryTime);
             }).Execute(() => Execute(SqlText, dataBase, commandType, param, transaction));
         }
 
@@ -211,7 +211,7 @@ namespace DataBaseTool.Services
             return Policy.Handle<Exception>().WaitAndRetryAsync(timeSpans, (response, retryTime, context) =>
             {
                 var errorMsg = response?.Message;
-                logger.LogDebug(message: "延遲重試，發生錯誤：{errorMsg}，延遲 {retryTime} 後重試", errorMsg, retryTime);
+                logger.LogDebug(message: "ErrorMessage：{errorMsg}，Execute after a delay of {retryTime}", errorMsg, retryTime);
             }).ExecuteAsync(() => ExecuteAsync(SqlText, dataBase, commandType, param, transaction));
         }
 
@@ -256,7 +256,7 @@ namespace DataBaseTool.Services
             }
             catch (Exception)
             {
-                Output = "";
+                throw;
             }
 
             return result;

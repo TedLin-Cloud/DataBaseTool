@@ -1,5 +1,9 @@
 # DataBaseTool
 
+Original Project URL
+1. [Dapper](https://github.com/DapperLib/Dapper)
+1. [Polly](https://github.com/App-vNext/Polly)
+
 -------------
 ## Support
 1. Support Retry - default for three times (first attempt after 1 second, second attempt after 1 second, third attempt after 2 seconds).
@@ -31,7 +35,6 @@ Create the setting
 Dependency Injection
 ### Program.cs
 ```csharp
-using DataBaseTool.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 ....
@@ -42,6 +45,8 @@ builder.Services.AddDataBase<ConnList>(builder.Configuration.GetSection("Connect
 Start for use
 ### Controller.cs
 ```csharp
+using DataBaseTool.Services;
+
 private readonly IDataBaseService _dataBaseService;
 
 public TestController(IDataBaseService dataBaseService)

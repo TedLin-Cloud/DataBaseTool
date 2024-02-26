@@ -1,40 +1,36 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <Authors>TelLin</Authors>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Description>One package combines Dapper and Polly And Dependency Injection</Description>
-    <Authors>Sam Saffron,Marc Gravell,Nick Craver,Michael Wolfenden, App vNext,TedLin</Authors>
-    <Company></Company>
-    <Version>8.0.0</Version>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <TargetFramework>net8.0</TargetFramework>
-    <Product>$(AssemblyName)</Product>
-    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageTags>Dapper;Polly</PackageTags>
-    <RepositoryType>git</RepositoryType>
-    <InvariantGlobalization>false</InvariantGlobalization>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
-    <!--<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>-->
-    <PackageProjectUrl>https://github.com/TedLin-Cloud/DataBaseTool</PackageProjectUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <RepositoryUrl>https://github.com/TedLin-Cloud/DataBaseTool</RepositoryUrl>
-  </PropertyGroup>
+	<PropertyGroup>
+		<Authors>TelLin</Authors>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Description>Dependency Injection combines Dapper and Polly</Description>
+		<Authors>Sam Saffron,Marc Gravell,Nick Craver,Michael Wolfenden, App vNext,TedLin</Authors>
+		<Company></Company>
+		<Version>8.0.0</Version>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<TargetFramework>net8.0</TargetFramework>
+		<Product>$(AssemblyName)</Product>
+		<AssemblyName>$(MSBuildProjectName)</AssemblyName>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageTags>Dapper;Polly</PackageTags>
+		<RepositoryType>git</RepositoryType>
+		<InvariantGlobalization>false</InvariantGlobalization>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+		<PackageProjectUrl>https://github.com/TedLin-Cloud/DataBaseTool</PackageProjectUrl>
+		<PackageLicenseFile>Licenses.txt</PackageLicenseFile>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Dapper" Version="2.1.28" />
-    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.5" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
-    <PackageReference Include="Polly" Version="8.3.0" />
-    <None Update="README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Dapper" Version="2.1.28" />
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.5" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
+		<PackageReference Include="Polly" Version="8.3.0" />
+
+		<None Include="Licenses.txt" Pack="True" PackagePath="\"/>
+		<None Update="README.md" Pack="True" PackagePath="\"/>
+	</ItemGroup>
 
 </Project>
